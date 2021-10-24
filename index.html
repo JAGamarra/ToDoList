@@ -19,7 +19,7 @@
 <body>
     <header class="header">
         <div class="title-container">
-            <h1 class="title"><a href="">TuDu List!</a></h1>
+            <h1 class="title"><a href="index.html">TuDu List!</a></h1>
             <span class="material-icons menu md-32 white" id="menu">
                 menu
             </span>
@@ -31,13 +31,32 @@
     </header>
 
     <main class="main">
-        <form>
-            <label class="text" for="input-text">Write your pendings below...</label>
-            <textarea id="input-text"></textarea>
+        <form class="container">
+            <label class="label-input" for="textarea">Write your pendings below...</label>
+            <textarea id="textarea" class="textarea"></textarea>
 
-            <a href="#">Add to list</a>
-            <a href="#">Update the pending</a>
+            <div class="btnContainer">
+                <a href="#" class="btnForm" id="sendBtn">
+                    <span class="material-icons md-18">task_alt</span>
+                    <span>Add to list</span> 
+                </a>
+                <a href="#" class="btnForm" id="updateBtn">
+                    <span class="material-icons md-18">upgrade</span>
+                    <span>Update the pending</span> 
+                </a>
+            </div>
         </form>
+
+        <section>
+            <h2 class="listTitle">Your Pendings...</h2>
+            <div>
+                <ul class="myList">
+                    <li class="listItem">Study JS
+                        <span class="material-icons md-18">delete_outline</span>
+                    </li>
+                </ul>
+            </div>
+        </section>
     </main>
 
     <footer>
@@ -45,6 +64,7 @@
     </footer>
 
     <script src="js/menu.js"></script>
+    <script src="js/myList.js"></script>
 </body>
 
 </html>
