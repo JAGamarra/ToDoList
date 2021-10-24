@@ -31,7 +31,7 @@
     </header>
 
     <main class="main">
-        <form class="container">
+        <form class="container" id="form">
             <label class="label-input" for="textarea">Write your pendings below...</label>
             <textarea id="textarea" class="textarea"></textarea>
 
@@ -50,9 +50,14 @@
         <section>
             <h2 class="listTitle">Your Pendings...</h2>
             <div>
-                <ul class="myList">
-                    <li class="listItem">Study JS
-                        <span class="material-icons md-18">delete_outline</span>
+                <ul class="myList" id="myList">
+                    <li class="listItem">
+                        <span class="listItem__text">Study JS</span>
+                        <div class="iconsContainer">
+                            <a href="#" id="check"><span class="material-icons md-24 green">task_alt</span></a>
+                            <a href="#" id="update"><span class="material-icons md-24 yellow">autorenew</span></a>
+                            <a href="#" id="delete"><span class="material-icons md-24 red">delete_outline</span></a>
+                        </div>
                     </li>
                 </ul>
             </div>

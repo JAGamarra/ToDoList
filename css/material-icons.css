@@ -42,3 +42,15 @@
 .material-icons.white {
   color: white;
 }
+
+.material-icons.red {
+  color: #b5090c;
+}
+
+.material-icons.yellow {
+  color: #dce800;
+}
+
+.material-icons.green {
+  color: #24c704;
+}

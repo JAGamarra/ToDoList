@@ -196,6 +196,24 @@ a {
     margin-top: 4rem;
 }
 
+.myList {
+    width: 40rem;
+    margin: 0 auto;
+}
+
 .listItem {
+    padding: 2rem 0;
     list-style: none;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 2rem;
+}
+
+.listItem__text {
+    font-size: 1.8rem;
+}
+
+.iconsContainer a{
+    margin-left: 1rem;
 }
