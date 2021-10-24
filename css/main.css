@@ -1,0 +1,135 @@
+/* Variables globales #a900f7  #8d0ecc #6c009e*/
+:root {
+    --white: #FFF;
+    --header-color: #6c009e;
+    --nav-color: #8f40c7;
+    --links-font: 'Rampart One', cursive;
+    --text-font: 'Krub', sans-serif;
+    --nav-color-hover: #aa25e8;
+}
+
+/* Globales */
+html {
+  box-sizing: border-box;
+  font-size: 62.5%;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+
+body {
+    font-family: var(--text-font);
+    font-size: 1.6rem;
+}
+
+a {
+    text-decoration: none;
+}
+
+
+/* ! HEADER Y NAV */
+.header {
+    margin-bottom: 6rem;
+    position: relative;
+}
+
+.menu {
+    position: absolute;
+    right: 17px;
+    top: 24px;
+    cursor: pointer;
+}
+
+.title {
+    margin: 0;
+    padding: 2rem 0;
+    font-size: 4rem;
+    font-family: var(--links-font);
+    text-align: center;
+    background-color: var(--header-color);
+}
+
+.title a {
+    color: var(--white);
+    transition: all .6s ease;
+}
+
+.title a:hover {
+    letter-spacing: 10px;
+}
+
+.title-container {
+    position: inherit;
+    z-index: 1000;
+}
+
+.nav {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    background-color: var(--nav-color);
+    transition: all .6s;
+}
+
+.nav a{
+    display: inline-block;
+    text-align: center;
+    font-size: 2.4rem;
+    font-family: var(--links-font);
+    padding: 1.8rem;
+    width: 100%;
+    color: var(--white);
+    transition: all .5s ease;
+}
+
+.nav a:hover {
+    letter-spacing: 6px;
+    background-color: var(--nav-color-hover);
+}
+
+.hidden {
+    margin-top: -128px;
+}
+.visible {
+    margin-top: 0;
+}
+
+/* * MEDIA QUERIES */
+@media (min-width: 768px){
+    .header {
+        position: unset;
+        display: flex;
+        justify-content: space-between;
+        background-color: var(--header-color);
+    }
+
+    .title-container {
+        position: unset;
+        padding-left: 2rem;
+    }
+
+    .menu {
+        visibility: hidden;
+    }
+
+    .nav {
+        flex-direction: row;
+        background-color: var(--header-color);
+        align-items:stretch;
+    }
+
+    .nav a {
+        width: 14rem;
+    }
+
+    .hidden, .visible {
+        margin: 0;
+    }
+}
+
+/* ! MAIN */
+
