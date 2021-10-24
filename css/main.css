@@ -29,6 +29,10 @@ a {
     text-decoration: none;
 }
 
+img {
+    width: 100%;
+}
+
 
 /* ! HEADER Y NAV */
 .header {
@@ -216,4 +220,25 @@ a {
 
 .iconsContainer a{
     margin-left: 1rem;
+}
+
+
+/* ! HELP PAGE */
+.help-title {
+    text-align: center;
+    color: var(--header-color);
+    font-size: 2.8rem;
+}
+
+.help-text {
+    text-align: center;
+    font-weight: 700;
+    color: var(--header-color);
+    margin-top: 1rem;
+}
+
+.image-container {
+    max-width: 60rem;
+    width: 70%;
+    margin: 0 auto;
 }
