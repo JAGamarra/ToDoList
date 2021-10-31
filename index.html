@@ -25,28 +25,30 @@
             </span>
         </div>
         <nav class="nav hidden" id="navbar">
-            <a href="#">Your List</a>
+            <a href="index.html">Your List</a>
             <a href="help.html">Help</a>
         </nav>
     </header>
 
     <main class="main">
-        <form class="container" id="form">
-            <label class="label-input" for="textarea">Write your pendings below...</label>
-            <textarea id="textarea" class="textarea"></textarea>
-
-            <div class="btnContainer">
-                <a href="#" class="btnForm" id="sendBtn">
-                    <span class="material-icons md-18">task_alt</span>
-                    <span>Add to list</span> 
-                </a>
-                <a href="#" class="btnForm" id="updateBtn">
-                    <span class="material-icons md-18">upgrade</span>
-                    <span>Update the pending</span> 
-                </a>
-            </div>
-        </form>
-
+        <div class="form-container">
+            <form class="container" id="form">
+                <label class="label-input" for="textarea">Write your pendings below... &#128071;</label>
+                <textarea id="textarea" class="textarea" name="pending"></textarea>
+    
+                <div class="btnContainer">
+                    <button class="btnForm" id="sendBtn">
+                        <span class="material-icons md-18">task_alt</span>
+                        <span>Add to list</span> 
+                    </button>
+                    <button class="btnDisabled" id="updateBtn">
+                        <span class="material-icons md-18">upgrade</span>
+                        <span>Update the pending</span> 
+                    </button>
+                </div>
+            </form>
+        </div>
+        
         <section>
             <h2 class="listTitle">Your Pendings...</h2>
             <div>
@@ -64,8 +66,8 @@
         </section>
     </main>
 
-    <footer>
-
+    <footer class="footer">
+        <p>Made by Julián Gamarra. Enjoy it. &#128154;</p>
     </footer>
 
     <script src="js/menu.js"></script>
