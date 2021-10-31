@@ -151,16 +151,16 @@ img {
 /*  * FORM AND INPUT */
 .main {
     max-width: 114rem;
-    width: 90%;
+    width: 94%;
     margin: 0 auto;
-    height: 100vh;
+    min-height: 100vh;
 }
 
 @media (min-width: 957px){
     .main {
         display: grid;
         grid-template-columns: 40% 60%;
-        column-gap: 1.2rem;
+        column-gap: 2rem;
     }
 }
 
@@ -280,7 +280,7 @@ img {
 }
 
 .myList {
-    width: 90%;
+    width: 94%;
     margin: 0 auto;
     padding: 0;
 }
@@ -303,6 +303,12 @@ img {
 
 .listItem__text {
     font-size: 1.8rem;
+}
+
+.task-done {
+    text-decoration: line-through;
+    color: var(--color-disabled);
+    font-style: italic;
 }
 
 .iconsContainer button{

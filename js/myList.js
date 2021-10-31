@@ -7,8 +7,10 @@ let myList = [];
 const pendingObj = {
   id: "",
   pending: "",
+  done: false,
 };
 let editionMode = false;
+let messageShowing = false;
 
 startEvents();
 function startEvents() {
@@ -25,19 +27,15 @@ function startEvents() {
 
 function fillPendingObj(e) {
   pendingObj[e.target.name] = e.target.value;
-  console.log(pendingObj);
-  const keyCode = e.keyCode || e.which;
-  if (keyCode == "13") {
-    e.preventDefault();
-    console.log("Presionas Enter");
-  }
 }
 
 function addToList(e) {
   e.preventDefault();
   const { pending } = pendingObj;
   if (pending === "") {
-    showMessage("You must write a task before add it", "error");
+    if (!messageShowing) {
+      showMessage("You must write a task before add it", "error");
+    }
     return;
   }
 
@@ -46,7 +44,9 @@ function addToList(e) {
   myList = [...myList, { ...pendingObj }];
 
   createListHTML();
-  showMessage("Added successfully", "success");
+  if (!messageShowing) {
+    showMessage("Added successfully", "success");
+  }
   restartObject();
   form.reset();
 }
@@ -55,7 +55,9 @@ function updateBtnEvent(e) {
   e.preventDefault();
   updateTask({ ...pendingObj });
   createListHTML();
-  showMessage("Updated successfully", "success");
+  if (!messageShowing) {
+    showMessage("Updated successfully", "success");
+  }
   editionMode = false;
   restartObject();
   buttonController();
@@ -84,10 +86,6 @@ function createListHTML() {
       spanCheck.innerText = "task_alt";
       aCheck.appendChild(spanCheck);
 
-      aCheck.onclick = (e) => {
-        e.preventDefault();
-      };
-
       const aUpdate = document.createElement("button");
       aUpdate.setAttribute("id", "update");
       const spanUpdate = document.createElement("span");
@@ -98,6 +96,13 @@ function createListHTML() {
       aUpdate.onclick = (e) => {
         e.preventDefault();
         editTask(listPending);
+      };
+
+      aCheck.onclick = (e) => {
+        e.preventDefault();
+        taskDone(textSpan, aCheck, spanCheck, aUpdate, spanUpdate);
+        listPending.done = true;
+        isDone(listPending);
       };
 
       const aDelete = document.createElement("button");
@@ -111,6 +116,10 @@ function createListHTML() {
         e.preventDefault();
         deletePending(listPending.id);
       };
+
+      if (listPending.done) {
+        taskDone(textSpan, aCheck, spanCheck, aUpdate, spanUpdate);
+      }
 
       iconContainer.appendChild(aCheck);
       iconContainer.appendChild(aUpdate);
@@ -155,6 +164,7 @@ function editTask(taskObj) {
 }
 
 function showMessage(message, type) {
+  messageShowing = true;
   const divMessage = document.createElement("div");
   divMessage.classList.add("messageInfo");
   if (type === "error") {
@@ -171,7 +181,8 @@ function showMessage(message, type) {
 
   setTimeout(() => {
     divMessage.remove();
-  }, 2700);
+    messageShowing = false;
+  }, 2000);
 }
 
 function buttonController() {
@@ -199,8 +210,37 @@ function buttonController() {
 function restartObject() {
   pendingObj.id = "";
   pendingObj.pending = "";
+  done = false;
 }
 
 function updateTask(pending) {
   myList = myList.map((task) => (task.id === pending.id ? pending : task));
+}
+
+function taskDone(textSpan, aCheck, spanCheck, aUpdate, spanUpdate) {
+  // Text
+  textSpan.classList.add("task-done");
+
+  // Check button
+  aCheck.setAttribute("disabled", "");
+  spanCheck.classList.remove("green");
+  spanCheck.classList.add("grey");
+
+  // Update button
+  // if (typeof updButton !== undefined) {
+  aUpdate.setAttribute("disabled", "");
+  spanUpdate.classList.remove("yellow");
+  spanUpdate.classList.add("grey");
+  // }
+}
+
+function isDone(taskDone) {
+  const { id, pending, done } = taskDone;
+  console.log(taskDone);
+  pendingObj.id = id;
+  pendingObj.pending = pending;
+  pendingObj.done = done;
+  updateTask({ ...pendingObj });
+  createListHTML();
+  restartObject();
 }
