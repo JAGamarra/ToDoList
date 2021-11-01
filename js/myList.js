@@ -19,8 +19,8 @@ function startEvents() {
   myPending.addEventListener("input", fillPendingObj);
   document.addEventListener("DOMContentLoaded", () => {
     myList = JSON.parse(localStorage.getItem("pendings")) || [];
-
     buttonController();
+    restartObject();
     createListHTML();
   });
 }
@@ -103,6 +103,7 @@ function createListHTML() {
         taskDone(textSpan, aCheck, spanCheck, aUpdate, spanUpdate);
         listPending.done = true;
         isDone(listPending);
+        restartObject();
       };
 
       const aDelete = document.createElement("button");
@@ -242,5 +243,4 @@ function isDone(taskDone) {
   pendingObj.done = done;
   updateTask({ ...pendingObj });
   createListHTML();
-  restartObject();
 }
