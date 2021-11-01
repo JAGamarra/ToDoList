@@ -103,7 +103,6 @@ function createListHTML() {
         taskDone(textSpan, aCheck, spanCheck, aUpdate, spanUpdate);
         listPending.done = true;
         isDone(listPending);
-        restartObject();
       };
 
       const aDelete = document.createElement("button");
@@ -211,7 +210,7 @@ function buttonController() {
 function restartObject() {
   pendingObj.id = "";
   pendingObj.pending = "";
-  done = false;
+  pendingObj.done = false;
 }
 
 function updateTask(pending) {
@@ -237,10 +236,10 @@ function taskDone(textSpan, aCheck, spanCheck, aUpdate, spanUpdate) {
 
 function isDone(taskDone) {
   const { id, pending, done } = taskDone;
-  console.log(taskDone);
   pendingObj.id = id;
   pendingObj.pending = pending;
   pendingObj.done = done;
   updateTask({ ...pendingObj });
   createListHTML();
+  restartObject();
 }

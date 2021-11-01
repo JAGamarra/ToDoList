@@ -325,7 +325,8 @@ img {
     background-color: var(--header-color);
     height: 5rem;
     display: flex;
-    justify-content: center;
+    justify-content: space-evenly;
+    align-items: center;
     color: var(--white);
     font-weight: bold;
 }
